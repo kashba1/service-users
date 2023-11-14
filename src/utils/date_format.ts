@@ -9,7 +9,7 @@ declare global {
     }
 }
 
-Date.prototype.isValid = function(): boolean {
+Date.prototype.isValid = function (): boolean {
     // If the date object is invalid it
     // will return 'NaN' on getTime()
     // and NaN is never equal to itself.
@@ -57,7 +57,7 @@ export const modifyDateFormat = (value: any, format: string = IST_DATE_FORMAT, t
     return value;
 };
 
-export const enumerateDaysBetweenDates = function(startDate: moment.MomentInput, endDate: moment.MomentInput) {
+export const enumerateDaysBetweenDates = function (startDate: moment.MomentInput, endDate: moment.MomentInput) {
     let dates = [];
     let currDate = moment(startDate)
         .utcOffset("+05:30")

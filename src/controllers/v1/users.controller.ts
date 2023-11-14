@@ -17,7 +17,7 @@ export const sendOtp = async (req: any, res: Response, next: NextFunction) => {
     try {
         const { mobileNumber } = req.body;
 
-        if(!mobileNumber) {
+        if (!mobileNumber) {
             // custom error mobile number required
             next();
         }
@@ -28,7 +28,7 @@ export const sendOtp = async (req: any, res: Response, next: NextFunction) => {
             }
         });
 
-        if(users) {
+        if (users) {
             // custom error - user already exists
             next();
         }
