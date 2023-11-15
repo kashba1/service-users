@@ -12,8 +12,16 @@ export function getCustomersModel() {
                 allowNull: false,
                 autoIncrement: true,
             },
+            user_id: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
             name: {
                 type: DataTypes.STRING,
+            },
+            email: {
+                type: DataTypes.STRING,
+                allowNull: false,
             },
             status: {
                 type: DataTypes.ENUM("1", "0"),
@@ -27,7 +35,7 @@ export function getCustomersModel() {
             updated_at: {
                 type: "TIMESTAMP",
                 allowNull: false,
-                defaultValue: Sequelize.literal("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"),
+                defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
             },
         },
         {

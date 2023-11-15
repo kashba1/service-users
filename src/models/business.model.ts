@@ -12,11 +12,23 @@ export function getBusinessModel() {
                 allowNull: false,
                 autoIncrement: true,
             },
+            user_id: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
             address: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
             gst_no: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            pan: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            email: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -32,7 +44,7 @@ export function getBusinessModel() {
             updated_at: {
                 type: "TIMESTAMP",
                 allowNull: false,
-                defaultValue: Sequelize.literal("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"),
+                defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
             },
         },
         {

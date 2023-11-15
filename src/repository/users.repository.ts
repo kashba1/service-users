@@ -13,3 +13,14 @@ export async function getUsers(condition: any = {}): Promise<UsersFields[] | []>
         }
     });
 }
+
+export async function createUser(userData: any): Promise<UsersFields | null> {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const createdUser = await getUsersModel().create(userData);
+            resolve(createdUser);
+        } catch (err) {
+            reject(err);
+        }
+    });
+}

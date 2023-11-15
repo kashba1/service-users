@@ -12,8 +12,11 @@ export interface UsersFields extends Model<InferAttributes<UsersFields>, InferCr
 
 export interface BusinessFields extends Model<InferAttributes<BusinessFields>, InferCreationAttributes<BusinessFields>> {
     business_id: CreationOptional<number>;
+    user_id: number;
     address: string;
     gst_no: string;
+    email: string;
+    pan: string;
     status: string;
     created_at?: string;
     updated_at?: string;
@@ -22,7 +25,9 @@ export interface BusinessFields extends Model<InferAttributes<BusinessFields>, I
 
 export interface CustomersFields extends Model<InferAttributes<CustomersFields>, InferCreationAttributes<CustomersFields>> {
     customer_id: CreationOptional<number>;
+    user_id: number;
     name: string;
+    email: string;
     status: string;
     created_at?: string;
     updated_at?: string;
