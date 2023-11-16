@@ -22,7 +22,7 @@ export const sendOtp = async (req: any, res: Response, next: NextFunction) => {
         let key = redisUtils["OTP_DATA"] + mobile_number;
         let keyExpiryTime = redisUtils["OTP_EXPIRE_TIME"];
         await setCache(key, generatedOtp, keyExpiryTime);
-        return res.status(HTTP_STATUS_CODE.OK).send(successRes({}, API_RESPONSE_MESSAGE.SUCCESS));
+        return res.status(HTTP_STATUS_CODE.OK).send(successRes({ generatedOtp }, API_RESPONSE_MESSAGE.SUCCESS));
     } catch (error) {
         next(error);
     }
@@ -51,7 +51,7 @@ export const signupUser = async (req: any, res: Response, next: NextFunction) =>
         
         let user: any = await getUserDetail(mobile_number, user_type);
 
-        // TO-DO: check if buisness or customer role exists and which account creation request is this.
+        // TO-DO: check if business or customer role exists and which account creation request is this.
         if(user && user.length) {
             throw new Api400Error(API_RESPONSE_MESSAGE.RECORD_ALREADY_EXISTS);
         }
@@ -74,7 +74,7 @@ export const signupUser = async (req: any, res: Response, next: NextFunction) =>
         } else if (user_type === 'vendor') {
             await signupCustomer(user_id, email);
         } else {
-            // TO-DO: complete enployee part
+            // TO-DO: complete employee part
             console.log("pending");
         }
         
