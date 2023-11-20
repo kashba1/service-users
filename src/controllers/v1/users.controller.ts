@@ -18,9 +18,10 @@ export const sendOtp = async (req: any, res: Response, next: NextFunction) => {
     try {
         const { mobile_number } = req.body;
 
-        const generatedOtp = generateRandomOtp();
+        const generatedOtp = 1234; //generateRandomOtp();
         let key = redisUtils["OTP_DATA"] + mobile_number;
         let keyExpiryTime = redisUtils["OTP_EXPIRE_TIME"];
+        console.log(key);
         await setCache(key, generatedOtp, keyExpiryTime);
         return res.status(HTTP_STATUS_CODE.OK).send(successRes({ generatedOtp }, API_RESPONSE_MESSAGE.SUCCESS));
     } catch (error) {
@@ -34,6 +35,7 @@ export const verifyOtp = async (req: any, res: Response, next: NextFunction) => 
 
         let key = redisUtils["OTP_DATA"] + mobile_number;
         const cachedOtp = await getCache(key);
+        console.log(cachedOtp);
         if(cachedOtp !== otp) {
             throw new Api400Error(API_RESPONSE_MESSAGE.INVALID);
         }
@@ -81,5 +83,13 @@ export const signupUser = async (req: any, res: Response, next: NextFunction) =>
         return res.status(HTTP_STATUS_CODE.OK).send(successRes({}, API_RESPONSE_MESSAGE.SUCCESS));
     } catch (error) {
         next(error);
+    }
+}
+
+export const signInUser = async (req: any, res: Response, next: NextFunction) => {
+    try {
+        
+    } catch (error) {
+        
     }
 }
