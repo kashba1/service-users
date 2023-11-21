@@ -6,8 +6,8 @@ import { signupUser, sendOtp, verifyOtp } from "../../controllers/v1/users.contr
 const router = (app: Express, options: any, urlSegment: string) => {
     // app.post(`${urlSegment}/sync`, [epoch.epochCheck, authJwt.deviceAuth, vendorCheck.checkVendorUsers, epoch.timeZoneCheck, valHan.validationHandler(SYNC_CONFIG)], multiSync);
     app.post(`${urlSegment}/signup`, signupUser);
-    app.post(`${urlSegment}/send-otp`, sendOtp),
-    app.post(`${urlSegment}/verify-otp`, verifyOtp)
+    app.post(`${urlSegment}/send-otp`, sendOtp);
+    app.post(`${urlSegment}/verify-otp`, verifyOtp);
 
 };
 
