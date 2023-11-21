@@ -73,7 +73,7 @@ export const signupUser = async (req: any, res: Response, next: NextFunction) =>
                 signupBusiness(user_id, address, email, pan, gst_no),
                 signupCustomer(user_id, email)
             ]);
-        } else if (user_type === 'vendor') {
+        } else if (user_type === 'customer') {
             await signupCustomer(user_id, email);
         } else {
             // TO-DO: complete employee part
